@@ -6262,7 +6262,7 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #fffff2;
+  background-color: #eeeeee;
 }
 
 .jumbotron h1,
@@ -6828,9 +6828,6 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel {
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 22px;
   margin-bottom: 22px;
   background-color: #fff;
   border: 1px solid transparent;
@@ -8366,6 +8363,7 @@ button.close {
 
 .jumbotron {
   text-align: center;
+  margin: 0;
   background: rgba(200, 200, 200, 0.8);
 }
 

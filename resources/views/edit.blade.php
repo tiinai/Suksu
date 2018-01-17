@@ -5,8 +5,9 @@
     <div class="panel-body">
         
         <!-- kuvab vormi olemasolemad andmed, mida võimaldab muuta-->
-        <form action="{{ url('hobune') }}" method="PUT" class="form-horizontal">
+        <form action="{{ url('hobune/'.$hobune->id) }}" method="POST" class="form-horizontal">
             {!! csrf_field() !!}
+            {!! method_field('PATCH') !!}
             <div class="form-group">
                 <label for="hobune" class="col-sm-3 control-label">Hobuse nimi</label>
                 <div class="col-sm-6">
@@ -30,3 +31,5 @@
             </div>
         </form>
     </div>
+
+@endsection

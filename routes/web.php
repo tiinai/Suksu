@@ -25,15 +25,15 @@ Route::get('/hobune/{hobune}', 'SuksuController@suksu')->name ('hobune');
 Route::post('/hobune', 'SuksuController@lisamine');
 
 //hobuse kustutamine
-Route::put('/hobune', 'SuksuController@kustutamine');
+Route::delete('/hobune/{id}', 'SuksuController@kustutamine');
 //Route::delete('/hobune/{hobune}', function(Hobune $hobune){
   //  $hobune->delete();
     //return redirect('/hobused');
 //});
 Route::get('/edit/{id}', 'SuksuController@muutmine');
 //Route::delete('/hobune', 'SuksuController@delete');
-
-Route::get('/edit/{id}', 'SuksuController@varskenda');
+Route::patch('/hobune/{id}', 'SuksuController@varskenda');
+//Route::get('/edit/{id}', 'SuksuController@varskenda');
 
 Auth::routes();
 

@@ -64,7 +64,7 @@ class SuksuController extends Controller
             ->withInput()
             ->withErrors($validator);
         }
-        $hobune = Hobune;
+        $hobune = Hobune::find($id);
         $hobune->name = $request->name;
         $hobune->omanik = $request->omanik;
         $hobune->save();

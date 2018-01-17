@@ -30,8 +30,8 @@
     <div class="panel-footer">
         <form action="{{ url('/edit/'.$hobune->id)}}"> 
             <button> Muuda</button>
-        </form>
-        <form action =" {{'SuksuController@kustutamine', $hobune->id}}", method= "POST">
+            </form>
+        <form action="{{ url('hobune/'.$hobune->id) }}" method="POST">
             {!! csrf_field() !!}
             {!! method_field('DELETE') !!}
             <button> Kustuta </button>
