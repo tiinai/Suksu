@@ -1,0 +1,44 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+.navbar{
+    margin: 0;
+}
+.content{
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(200,200,200,0.2);
+    height: 100vh;
+}
+.jumbotron{
+    text-align: center;
+    margin:0;
+    background: rgba(200,200,200,0.8); 
+}
+.content-body{
+    display: block;
+}
+.background_image{
+        background-image: url("/../img/taust.jpg");
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+}
+.background-image{
+    z-index: -999;
+    position: fixed;
+    background-image: url("/../img/taust.jpg");
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
