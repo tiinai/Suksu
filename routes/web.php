@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hobused', 'SuksuController@suksulist')->name ('hobused');
+Route::get('/hobused', 'PageController@suksulist')->name ('hobused');
 
-Route::get('/hobune/{hobune}', 'SuksuController@suksu')->name ('hobune');
+Route::get('/hobune/{hobune}', 'PageController@suksu')->name ('hobune');
 
     //uue hobuse lisamine
 Route::post('/hobune', 'SuksuController@lisamine');
@@ -38,7 +38,7 @@ Route::patch('/hobune/{id}', 'SuksuController@varskenda');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/meist', 'SuksuController@meist')->name ('meist');
+Route::get('/meist', 'PageController@meist')->name ('meist');
 
 Route::get('/hobune',function(){
 return view ('hobune');

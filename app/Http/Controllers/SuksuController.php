@@ -9,17 +9,6 @@ use App\Hobune;
 class SuksuController extends Controller
 {
 
-    //lehekülje Meist kuvamine
-    public function meist(){
-        return view ('meist');
-    }
-        
-    /// hobuste nimekirja kuvamine
-    public function suksulist(Request $request){
-        $hobused = hobune::orderBy('name','asc')->get();
-        return view('hobused', ['hobused'=> $hobused]);
-    }
-
     public function __construct()
     {
         $this->middleware('auth');
