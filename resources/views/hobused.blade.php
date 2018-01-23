@@ -4,7 +4,7 @@
     <div class="panel-body">
         
         <!-- uue hobuse lisamine vorm -->
-        <form action="{{ url('hobune')}}" method="POST" class="form-horizontal">
+        <form action="{{ url('hobune')}}" method="POST" class="form-horizontal" enctype = "multipart/form-data">
             {!! csrf_field() !!}
             <div class="form-group row">
                 <label for="hobune" class="col-sm-3 control-label">Hobuse nimi</label>
@@ -18,7 +18,11 @@
                     <input type="text" name="omanik" id="omanik-name" class="form-control"/>
                 </div>
             </div>
-            
+            <div class="form-group row">
+                <label for="pilt" class="col-sm-3 control-label">Pildi lisamine</label>
+                <div class="col-sm-6">
+                    <input type="file" name="image"/>
+                 </div>
           </div>
             <div class="form-group row">
                 <div class="col-sm-9 col-sm-offset-3">
@@ -45,6 +49,9 @@
                                     <td class="table-text">
                                         <div><a href="{{ url('/hobune/'.$hobune->id)}}">{{ $hobune->name }}</a></div>
                                     </td> 
+                                    <td class="image">
+                                       <div> <img src="storage/app/upload/images/"> {{ $hobune->image }} </div>
+                                    </td>
                                 </tr> 
                             @endforeach
                         </tbody>

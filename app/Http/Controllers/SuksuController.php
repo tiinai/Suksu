@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Hobune;
+use Storage;
 
 class SuksuController extends Controller
 {
@@ -24,9 +25,14 @@ class SuksuController extends Controller
             ->withInput()
             ->withErrors($validator);
         }
+        $image=$request->file('pilt');
+        $filename=$image->getClientOriginalName();
+        Storage::put('upload/images/' . $filename, file_get_contents($request->file('pilt')->getRealPath()));
+        
         $hobune = new Hobune;
         $hobune->name = $request->name;
         $hobune->omanik = $request->omanik;
+        $hobune->pilt = $filename;
         $hobune->save();
         
         return redirect('/hobused')->with('success', 'Hobune lisatud');

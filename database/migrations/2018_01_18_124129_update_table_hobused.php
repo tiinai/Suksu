@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHobusedTable extends Migration
+class UpdateTableHobused extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateHobusedTable extends Migration
      */
     public function up()
     {
-        Schema::create('hobused', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name',225);
-            $table->string ('omanik', 225);
-            $table->string ('pilt', 225);
-            $table->timestamps();
+        Schema::table('hobused', function (Blueprint $table) {
+            $table->string('isa',225);
         });
     }
 
@@ -29,6 +25,6 @@ class CreateHobusedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hobused');
+        $table->dropColumn('isa');
     }
 }
