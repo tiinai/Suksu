@@ -12,6 +12,7 @@ class PageController extends Controller
     public function meist(){
         return view ('meist');
     }
+
         
     /// hobuste nimekirja kuvamine
     public function suksulist(Request $request){

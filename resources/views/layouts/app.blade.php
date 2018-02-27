@@ -24,9 +24,10 @@
                 
                 <div class="navbar-header">
                      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="{{ url('/') }}">Avaleht</a>
                         <a class="navbar-brand" href="{{ url(route('meist')) }}">Meist</a>
                         <a class="navbar-brand" href="{{ secure_url(route('hobused')) }}">Hobused</a>
-                        <a class="navbar-brand" href="#">Broneeri</a>
+                      <!--  <a class="navbar-brand" href="#">Broneeri</a> -->
                     </nav>
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">

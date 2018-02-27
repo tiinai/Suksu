@@ -19,20 +19,31 @@ class SuksuController extends Controller
         $validator = Validator::make($request->all(),[
         'name' => 'required|max:255',
         'omanik' => 'required|max:255',
+        'isa' => 'required|max:255',
+        'pilt' => 'image|nullable|max:2999'
         ]);
         if($validator->fails()){
             return redirect('/hobused')
             ->withInput()
             ->withErrors($validator);
         }
-        $image=$request->file('pilt');
-        $filename=$image->getClientOriginalName();
-        Storage::put('upload/images/' . $filename, file_get_contents($request->file('pilt')->getRealPath()));
+        if ($request -> hasFile('pilt')){
+            $filenameWithExt=$request-> file('pilt')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension=$request-> file('pilt')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $path=$request->file('pilt')->storeAs('/public/images/', $fileNameToStore);
+        }
+
+        else {
+            $fileNameToStore='noimage.png';
+        }
         
         $hobune = new Hobune;
         $hobune->name = $request->name;
         $hobune->omanik = $request->omanik;
-        $hobune->pilt = $filename;
+        $hobune->isa = $request->isa;
+        $hobune->pilt = $fileNameToStore;
         $hobune->save();
         
         return redirect('/hobused')->with('success', 'Hobune lisatud');
@@ -74,15 +85,4 @@ class SuksuController extends Controller
         $hobune->delete();
         return redirect('/hobused');
     }
-//    public function kustutamine ($hobune){
-  //    $hobune->delete();
-    //  return redirect('/hobused');
-    //}
-  // public function kustutamine(Hobune $hobune){
-//       $hobune->delete();
- //      return redirect('/hobused');
-  // }
-//   public function delete($id){
-//       return redirect('/hobused');
-//   }
 }

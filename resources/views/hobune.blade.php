@@ -22,11 +22,24 @@
                     <td class="table-text">
                         <div> {{ $hobune->omanik }}</div>
                     </td>
-                    
                 </tr>
+                <tr>
+                    <td><th>
+                        Omaniku nimi
+                    </th></td>        
+                    <td class="table-text">
+                        <div> {{ $hobune->isa }}</div>
+                    </td>
+                </tr>
+                    
             </tbody>
         </table>
     </div>
+    <div class="row">
+        <div class ="col-md-8 col-md-offset-2">
+            <div> <img class="img-responsive" src="/storage/images/{{ $hobune->pilt }}"/> </div>
+        </div>
+    </div>    
     <div class="panel-footer">
         <form action="{{ url('/edit/'.$hobune->id)}}"> 
             <button> Muuda</button>
@@ -36,8 +49,7 @@
             {!! method_field('DELETE') !!}
             <button> Kustuta </button>
         </form>
-        
-        <button> Tagasi</button></form>
+        <a href="/hobused" class="btn btn-default"> Tagasi</a>"
     </div>
 </div>
           

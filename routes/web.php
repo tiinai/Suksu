@@ -35,6 +35,7 @@ Route::get('/edit/{id}', 'SuksuController@muutmine');
 Route::patch('/hobune/{id}', 'SuksuController@varskenda');
 //Route::get('/edit/{id}', 'SuksuController@varskenda');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -43,4 +44,7 @@ Route::get('/meist', 'PageController@meist')->name ('meist');
 Route::get('/hobune',function(){
 return view ('hobune');
 
+Route::get('resizeImage', 'ImageController@resizeImage');
+
+Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
 });
